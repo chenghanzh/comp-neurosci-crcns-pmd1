@@ -17,7 +17,7 @@ The primary research goal is to identify the difference between premotor cortex 
 - Then, we did a poisson regression for our model. 
 - Finally, we generated graphs of the relationship between coefficients of M1 and PMd. 
 
-### Smoothness of Trjectory
+### Smoothness of Trajectory
 We wonder if the kinematic data over reaches will indicate that Monkey MT have learnt from previous experience. In the project, we use smoothness of trajectory (both position and velocity) as an indicator of proficiency.
 
 ## Usage
