@@ -247,8 +247,8 @@ def read_processed_data(file_name):
                                "acceleration": kinematics_acc,
                                "timestamp": kinematics_timestamp}
             kinematics.append(kinematics_info)
-        neural_data_M1 = data_raw["neural_data_M1"][i][0].T
-        neural_data_PMd = data_raw["neural_data_PMd"][i][0].T
+        neural_data_M1 = data_raw["neural_data_M1"][i][0]
+        neural_data_PMd = data_raw["neural_data_PMd"][i][0]
         time_window = data_raw["time_window"][i][0]
         timestamps = data_raw["timestamps"][i][0]
 
@@ -314,11 +314,11 @@ def read_processed_data(file_name):
     return header, version, globals, reaches, trials
 
 
-read_data("MM_S1_raw.mat")
-read_data("MM_S1_processed.mat")
-read_data("MT_S1_raw.mat")
-read_data("MT_S1_processed.mat")
-read_data("MT_S2_raw.mat")
-read_data("MT_S2_processed.mat")
-read_data("MT_S3_processed.mat")
-read_data("MT_S3_processed.mat")
+# read_data("MM_S1_raw.mat")
+# read_data("MM_S1_processed.mat")
+# read_data("MT_S1_raw.mat")
+# read_data("MT_S1_processed.mat")
+# read_data("MT_S2_raw.mat")
+# read_data("MT_S2_processed.mat")
+# read_data("MT_S3_processed.mat")
+# read_data("MT_S3_processed.mat")

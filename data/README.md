@@ -2,21 +2,10 @@
 
 In this data exploration, I am using pmd-1 dataset.
 
-### Usage
-*read_data(file_name)* is a static method in *io.py*. 
-The parameter *file_name* should be a string that incicates the data file name, which should be one of the following:
-  * MM_S1_raw.mat
-  * MM_S1_processed.mat
-  * MT_S1_raw.mat
-  * MT_S1_processed.mat
-  * MT_S2_raw.mat
-  * MT_S2_processed.mat
-  * MT_S3_raw.mat
-  * MT_S3_processed.mat
+### How to retrieve data
+The original data are organized nicely in ".mat" form. Thus, I use method "loadmat" from the package "scipy.io" to directly obtain the data in a JSON-like organization. Then, I reorganized the data in the following form. 
 
-You can use it by uncommenting the last few lines in *io.py*. No outputs for this function, but data is read and passed as return value.
-
-### Return Values
+### Data Structure Organization
 *read_data()* returns different values depends on whether the parameter indicates a raw data or processed data. 
 
 #### Raw Data

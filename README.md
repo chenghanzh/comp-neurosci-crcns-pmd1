@@ -1,55 +1,42 @@
 
-# Computational Neuroscience Project Skeleton
+# Computational Neuroscience Project
 
-This repository is a skeleton Python package that students in PSYC 5270 can use to get started on their data exploration assignments.
+This repository is a final project for UVA cource PSYC5270 Computation Neuroscience
 
-## Getting started
+## Motivation
+During daily life, we make many reaching movements. The first reaching movements, which emerge around 3 to 4 months of age, and can be characterized by variation and irregular, zig-zag–like trajectories. During the following months, the reaching movements rapidly become more regular and smooth. Thereafter, the fine-tuning of reaching takes many years. The motor cortex is the region of the cerebral cortex, and this said region & its neurons are responsible for the planning, control, and execution of voluntary movements. From an anatomical standpoint, the motor cortex is an area of the frontal lobe located in the posterior precentral gyrus immediately anterior to the central sulcus. As movements are fine-tuned, reaching movements in healthy adults can be characterized (in a superficial statistical sense) by a bell-shaped velocity profile that consists of an acceleration and a deceleration. It takes a long time before reaching movements have this adult configuration. As time goes on, the reaching movements become faster, straighter, and smoother. The increase in smoothness of the reaching movements is due to a decrease of the corrections of the movement path. These corrections can be seen as sub-movements of the reaching movement and are determined with the help of peaks in the velocity profile of the reaching hand. In our data-set (pmd-1), using monkeys as subjects, we looked directly at behavioral variables such as acceleration, velocity and position to understand the essential question of: what does it take for us to move, and what variables can be isolated to increase the smoothness of reaching movements? 
 
-Start by cloning the repository: `git clone https://github.com/melizalab/comp-neurosci-skeleton.git`
+## Goal
+The primary research goal is to identify the difference between premotor cortex and primary motor cortex when an animal performs repetitive behavior. Currently, the dataset contains information about the velocity, acceleration, position of the monkey's hand for all the trials. It also provides the number of spikes in each time bin during the reaching task. We would like to find the first onset of different neurons and determine if this onset time has changed between different trials. The difference between premotor cortex and primary motor cortex will be interesting, but it would also be exciting to locate changes in trends of different neurons of the same cortex.
 
-This will create a new directory, `comp-neurosci-skeleton`, containing the following items:
 
-- `README.md`: this file
-- `setup.py`:  package description file. You will need to edit this.
-- `requirements.txt`: a list of packages your code depends on
-- `.gitignore`: a list of files git will ignore when telling you what's changed
-- `src`:       a directory where you will put your python code
-- `test`:      a directory where you will put test code
-- `data`:      a directory where your data will live
-- `build`:     a directory where processed output from your analysis will live
+## Methodology
+### Linear-Nonlinear-Poisson Cascade Model
+- Firstly, we found the first onset of different neurons and determined if this onset time has changed between different trials. 
+- We take average of all neurons in PMd and M1 data.
+- Then, we did a poisson regression for our model. 
+- Finally, we generated graphs of the relationship between coefficients of M1 and PMd. 
 
-Choose a new name for your package. For the PSYC 5270 assignment, use something like `crcns-datasetid-computingid`. Rename the top-level directory (`comp-neurosci-skeleton`) and edit `setup.py` to set the new name and other identifying information.
+### Smoothness of Trjectory
+We wonder if the kinematic data over reaches will indicate that Monkey MT have learnt from previous experience. In the project, we use smoothness of trajectory (both position and velocity) as an indicator of proficiency.
 
-Now you need to create a github repository of your own. Go to [https://github.com/new](https://github.com/new). Give the repository your chosen name and a description, then click Create Repository. **DO NOT** check the box to initialize the repository with a readme. Ignore the instructions on how to set up your repository, but make a note of the address. It will look something like `https://github.com/dmeliza/dummy.git`
+## Usage
 
-Finally, set your local directory to track the github repository by running the following commands in your working directory. Replace the repository address in the code below with the one for your project.
+The main results are contained in the Jupyter Notebook in the root directory called "data exploration.ipynb".
 
-``` shell
-git remote rm origin
-git remote add origin https://github.com/dmeliza/dummy.git
-git push -u origin master
-```
+Datasets should be put into the folder "data" from https://crcns.org/data-sets/motor-cortex/pmd-1 by the user.
 
-If you get an error on the last command, it's probably because you let github initialize your repository. You'll have to delete and re-create the repository on github and then run the last command again.
+*read_data(file_name)* is a static method in *src/io.py*. 
+The parameter *file_name* should be a string that incicates the data file name, which should be one of the following:
+  * MM_S1_raw.mat
+  * MM_S1_processed.mat
+  * MT_S1_raw.mat
+  * MT_S1_processed.mat
+  * MT_S2_raw.mat
+  * MT_S2_processed.mat
+  * MT_S3_raw.mat
+  * MT_S3_processed.mat
 
-## Next steps
+You can test it by uncommenting the last few lines in *io.py*. No outputs for this function, but data is read and passed as return value.
 
-Edit `data/README.md` to describe how to retrieve data. Better yet, write a script.
 
-Edit `requirements.txt` to add any needed dependencies, then create a virtual environment and install the dependencies as follows:
-
-``` shell
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-```
-
-Alternatively, if you're using anaconda, create a new environment and run the following to install dependencies:
-
-``` shell
-conda install git numpy scipy pandas matplotlib notebook
-```
-
-Install the project in development mode by running `python setup.py develop`. If you use notebooks, this will ensure that you can access your modules.
-
-Edit this file to describe your actual project.
