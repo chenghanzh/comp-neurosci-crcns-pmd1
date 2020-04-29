@@ -22,7 +22,7 @@ We wonder if the kinematic data over reaches will indicate that Monkey MT have l
 
 ## Usage
 
-The main results are contained in the Jupyter Notebook in the root directory called "data exploration.ipynb".
+The main results are contained in the Jupyter Notebook in the root directory called "data exploration.ipynb". All you need to do is to put the dataset into the folder "data" and run the notebook. The retrieval of data and all the process are contained in the notebook.
 
 Datasets should be put into the folder "data" from https://crcns.org/data-sets/motor-cortex/pmd-1 by the user.
 
